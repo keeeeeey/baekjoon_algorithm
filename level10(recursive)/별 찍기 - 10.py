@@ -1,1 +1,1 @@
-N = int(input())
+pass
