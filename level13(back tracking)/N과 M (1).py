@@ -9,9 +9,9 @@ def fn():
     for i in range(1, N + 1):
         if i not in n_list:
             n_list.append(i)
+            print(n_list)
             fn()
             n_list.pop()
-    return
+            print(n_list)
 
 fn()
-
