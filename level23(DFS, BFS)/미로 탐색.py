@@ -5,7 +5,6 @@ N, M = map(int, input().split())
 grid = list(list(map(int, input())) for _ in range(N))
 
 def bfs(row, col):
-    cnt = 1
     q = deque([(row, col)])
 
     while q:
