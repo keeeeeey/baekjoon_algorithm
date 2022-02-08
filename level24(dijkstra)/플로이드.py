@@ -1,19 +1,21 @@
 import sys
-
 input = sys.stdin.readline
+INF =1e9
 
-INF = 1e9
+n = int(input())
+m = int(input())
+graph = [[] for _ in range(n + 1)]
 
-V, E = map(int, input().split())
-graph = [[] for _ in range(V + 1)]
-
-for _ in range(E):
+for _ in range(m):
     a, b, c = map(int, input().split())
     graph[a].append((b, c))
 
 def floyd_warshall():
     N = len(graph)
     dist = [[INF] * N for _ in range(N)]
+
+    for idx in range(1, N):
+        dist[idx][idx] = 0
 
     for start, adjs in enumerate(graph):
         for adj, d in adjs:
@@ -26,13 +28,7 @@ def floyd_warshall():
                 dist[a][b] = min(dist[a][b], dist[a][k] + dist[k][b])
 
     return dist
-print(floyd_warshall())
-min_num = 1e9
 
 list = floyd_warshall()
 for i in range(1, len(list)):
-    min_num = min(min_num, list[i][i])
-if min_num == INF:
-    print(-1)
-else:
-    print(min_num)
+    print(' '.join([str(el) if el != INF else '0' for el in list[i][1:]]))
