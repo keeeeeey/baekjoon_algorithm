@@ -23,7 +23,6 @@ def nqueen(n):
                 dfs(row + 1)
 
     dfs(0)
-    print(cnt)
     return cnt
 
-nqueen(n)
+print(nqueen(n))
