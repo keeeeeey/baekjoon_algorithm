@@ -17,7 +17,7 @@ def bfs(start):
 
         for i in range(4):
             nx = x + dx[i]
-            ny = y + dy[i]
+            ny = y + dy[i] 
             if nx < 0 or nx >= N or ny < 0 or ny >= M:
                 continue
             if maze[nx][ny] == 1:
