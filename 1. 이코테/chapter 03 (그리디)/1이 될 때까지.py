@@ -1,10 +1,14 @@
+import sys
+input = sys.stdin.readline
+
 N, K = map(int, input().split())
-cnt = 0
-while N != 1:
+ans = 0
+while N > 1:
     if N % K == 0:
-        cnt += 1
         N /= K
+        ans += 1
     else:
-        cnt += 1
         N -= 1
-print(cnt)
+        ans += 1
+
+print(ans)

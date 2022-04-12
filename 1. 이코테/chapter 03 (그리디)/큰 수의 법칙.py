@@ -1,26 +1,26 @@
 import sys
 input = sys.stdin.readline
 
-def f():
-    N, M, K = map(int, input().split())
-    N_list = sorted(list(map(int, input().split())), reverse=True)
-
-    result = 0
-    k = 0
-    first = N_list[0]
-    second = N_list[1]
-    while True:
-        if k < K:
-            result += first
-            k += 1
+N, M, K = map(int, input().split())
+N_list = sorted(list(map(int, input().split())))
+first = N_list.pop()
+second = N_list.pop()
+cnt = 0
+ans = 0
+print(first, second)
+while cnt < M:
+    for _ in range(K):
+        if cnt < M:
+            ans += first
+            cnt += 1
         else:
-            result += second
-            k = 0
+            break
 
-        M -= 1
+    if cnt < M:
+        ans += second
+        cnt += 1
+    else:
+        break
 
-        if M == 0:
-            return result
+print(ans)
 
-
-print(f())

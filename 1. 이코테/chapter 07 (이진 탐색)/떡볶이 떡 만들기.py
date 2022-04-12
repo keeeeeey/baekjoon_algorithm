@@ -4,22 +4,24 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 N_list = sorted(list(map(int, input().split())))
 
-bottom = 0
-top = N_list[-1]
+start = 0
+end = N_list[N - 1]
+mid = 0
+while start <= end:
+    mid = (start + end) // 2
+    total = 0
 
-while bottom <= top:
-    mid = (bottom + top) // 2
-    length = 0
+    for i in range(N):
+        if N_list[i] > mid:
+            length = N_list[i] - mid
+            total += length
 
-    for i in range(len(N_list)):
-        result = N_list[i] - mid
-        if result > 0:
-            length += result
-
-    if length >= M:
-        bottom = mid + 1
+    if total > M:
+        start = mid + 1
+    elif total < M:
+        end = mid - 1
     else:
-        top = mid - 1
+        break
 
-print(top)
+print(mid)
 
