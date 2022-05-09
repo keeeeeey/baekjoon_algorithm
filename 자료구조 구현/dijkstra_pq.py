@@ -12,7 +12,7 @@ INF = int(1e9)
 
 def dijkstra_pq(graph, start):
     N = len(graph)
-    dist = [INF] * N
+    dist = [INF] * (N + 1)
 
     q = []
     heapq.heappush(q, (0, start))
