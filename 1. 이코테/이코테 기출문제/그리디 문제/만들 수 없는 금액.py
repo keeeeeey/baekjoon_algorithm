@@ -1,13 +1,10 @@
 N = int(input())
 N_list = sorted(list(map(int, input().split())))
-N_max = N_list[-1]
-answer = 0
+answer = 1
+print(N_list)
+for i in range(N):
+    if answer < N_list[i]:
+        break
+    answer += N_list[i]
 
-def sum():
-
-
-for i in range(N_max + 1):
-    for j in range(len(N_list)):
-        if i == N_list[j]:
-            break
-        else:
+print(answer)
