@@ -23,7 +23,7 @@ while True:
         d = (d + 3) % 4
         if 0 <= nx < N and 0 <= ny < M and graph[nx][ny] == 0:
             if visited[nx][ny] == 0:
-                visited[nx][ny] == 1
+                visited[nx][ny] = 1
                 cnt += 1
                 r = nx
                 c = ny
