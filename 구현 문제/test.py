@@ -1,4 +1,2 @@
-alist = [1, 2, 3]
-blist = [4, 5, 6]
-alist.append(blist)
-print(alist)
+grid = [[0] * 5 for _ in range(7)]
+print(grid)
