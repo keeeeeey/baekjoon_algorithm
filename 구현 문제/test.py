@@ -1,1 +1,5 @@
-print(4 % 2)
+s = []
+if s:
+    print(1)
+else:
+    print(2)
