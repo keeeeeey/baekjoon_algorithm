@@ -1,5 +1,2 @@
-s = []
-if s:
-    print(1)
-else:
-    print(2)
+s= [1, 1, 1, 1, 1]
+print(max(s))
