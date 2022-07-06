@@ -1,15 +1,15 @@
-N = list(map(int, input().strip()))
-end = len(N)
-mid = end / 2
+n = list(map(int, input()))
 left = 0
 right = 0
-for i in range(end):
-    if i < mid:
-        left += N[i]
-        continue
-    right += N[i]
+length = len(n)
+for i in range(length):
+    if i < length // 2:
+        left += n[i]
+    else:
+        right += n[i]
 
 if left == right:
     print("LUCKY")
 else:
     print("READY")
+
