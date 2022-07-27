@@ -1,6 +1,4 @@
 from collections import deque
-import sys
-input = sys.stdin.readline
 
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
@@ -25,9 +23,9 @@ def bfs(field, visited, time, start):
                         q.append([nx, ny])
 
 t = int(input())
-for tc in range(t):
+for tc in range(1, t + 1):
     n = int(input())
-    field = list(list(map(int, input().split())) for _ in range(n))
+    field = list(list(map(int, input())) for _ in range(n))
 
     visited = [[0] * n for _ in range(n)]
     time = [[0] * n for _ in range(n)]
