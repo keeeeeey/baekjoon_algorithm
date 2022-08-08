@@ -24,6 +24,6 @@ def Counting_Sort(A, B, k):
     for i in range(1, len(C)):
         C[i] += C[i - 1]
 
-    for i in range((len(B) - 1, -1, -1)):
+    for i in range((len(B) - 1, -1, -1)): # 뒤에서 부터 조회하는 이유? : stable한 정렬을 하기 위해 -> 정렬된 후에도 중복된 숫자의 순서를 유지하기 위해서
         C[A[i]] -= 1
         B[C[A[i]]] = A[i]
