@@ -13,3 +13,4 @@ for tc in range(1, t + 1):
 
     answer = max - min
     print(f"#{tc} {answer}")
+    
