@@ -15,3 +15,4 @@ for tc in range(1, 11):
             answer += buildings[i] - max_height
 
     print(f"#{tc} {answer}")
+
