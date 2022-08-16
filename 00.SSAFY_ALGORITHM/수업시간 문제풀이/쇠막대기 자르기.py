@@ -14,7 +14,7 @@ for tc in range(1, t + 1):
             else:
                 answer += 1
                 cnt -= 1
-    answer += cnt
+
     print(f"#{tc} {answer}")
 
 # 2
