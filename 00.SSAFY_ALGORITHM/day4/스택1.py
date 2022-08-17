@@ -39,7 +39,7 @@ sys.setrecursionlimit(10 ** 6)
 # 함수에서 실행해야 하는 작업의 특성에 따라 일반적인 호출방식보다 재귀호출방식을 사용하여 함수를 만들면 프로그램의 크기를 줄이고 간단하게 작성 가능
 
 def factorial(n):
-    if n == 1:
+    if n <= 1:
         return 1
     else:
         return n * factorial(n - 1)
