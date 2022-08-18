@@ -10,7 +10,6 @@ for tc in range(1, t + 1):
     visited = [0] * (v + 1)
     visited[s] = 1
     stack = []
-    cnt = 0
     cur = s
     stack.append(s)
     while stack:
@@ -19,7 +18,5 @@ for tc in range(1, t + 1):
                 stack.append(i)
         cur = stack.pop()
         visited[cur] = 1
-        if cur == g:
-            cnt += 1
 
-    print(f"#{tc} {cnt}")
+    print(f"#{tc} {visited[g]}")
