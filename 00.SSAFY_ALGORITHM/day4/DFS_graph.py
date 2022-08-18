@@ -19,7 +19,7 @@ def dfs(s, V):
             if adj[now][w] == 1 and visited[w] == 0:
                 # 다음 방문 위치 처리
                 # 현재 위치를 스택에 저장
-                stack.append(w)
+                stack.append(now)
                 # 다음 방문 위치를 방문했다고 체크
                 visited[w] = 1
                 # 현재 위치를 다음 위치로 바꾸고
