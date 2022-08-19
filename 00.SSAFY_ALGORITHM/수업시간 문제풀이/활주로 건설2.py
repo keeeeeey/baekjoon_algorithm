@@ -11,10 +11,7 @@ for tc in range(1, t + 1):
         for j in range(n - 1):
             if runway[i][j] > runway[i][j + 1]:
                 for k in range(j + 1, j + x + 1):
-                    if k >= n:
-                        flag_row = False
-                        break
-                    if runway[i][k] != runway[i][j] - 1 or ch_row[i][k] == 1:
+                    if k >= n or runway[i][k] != runway[i][j] - 1 or ch_row[i][k] == 1:
                         flag_row = False
                         break
                 if flag_row:
@@ -23,10 +20,7 @@ for tc in range(1, t + 1):
 
             if runway[i][j] < runway[i][j + 1]:
                 for k in range(j, j - x, -1):
-                    if k < 0:
-                        flag_row = False
-                        break
-                    if runway[i][k] != runway[i][j + 1] - 1 or ch_row[i][k] == 1:
+                    if k < 0 or runway[i][k] != runway[i][j + 1] - 1 or ch_row[i][k] == 1:
                         flag_row = False
                         break
                 if flag_row:
@@ -35,10 +29,7 @@ for tc in range(1, t + 1):
 
             if runway[j][i] > runway[j + 1][i]:
                 for k in range(j + 1, j + x + 1):
-                    if k >= n:
-                        flag_col = False
-                        break
-                    if runway[k][i] != runway[j][i] - 1 or ch_col[k][i] == 1:
+                    if k >= n or runway[k][i] != runway[j][i] - 1 or ch_col[k][i] == 1:
                         flag_col = False
                         break
                 if flag_col:
@@ -47,10 +38,7 @@ for tc in range(1, t + 1):
 
             if runway[j][i] < runway[j + 1][i]:
                 for k in range(j, j - x, -1):
-                    if k < 0:
-                        flag_col = False
-                        break
-                    if runway[k][i] != runway[j + 1][i] - 1 or ch_col[k][i] == 1:
+                    if k < 0 or runway[k][i] != runway[j + 1][i] - 1 or ch_col[k][i] == 1:
                         flag_col = False
                         break
                 if flag_col:
