@@ -47,7 +47,7 @@ for i in range(n):
         # 연산자인 경우
         # 우선순위를 비교해서 스택의 top 의 원소와 지금 떼온 연산자와 우선순위를 비교
         # 우선순위가 같거나 높으면 pop
-        if top > -1 and icp[stack[top]] >= icp[infix[i]]:
+        while top > -1 and icp[stack[top]] >= icp[infix[i]]:
             # pop 시켜주고 문자열에 출력
             postfix += stack[top]
             top -= 1
