@@ -14,12 +14,12 @@ def f(i, k):
                 print(arr[j], end=" ")
         print()
     else:
-        bit[i] = 1
-        f(i + 1, k)
         bit[i] = 0
+        f(i + 1, k)
+        bit[i] = 1
         f(i + 1, k)
 
 arr = [3, 6, 7]
 n = len(arr)
-bit = [0] * n
+bit = [1] * n
 f(0, n)
