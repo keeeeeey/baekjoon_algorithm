@@ -28,7 +28,27 @@ def game_start(x, y, d, cnt):
                 game_start(nx, ny, 1, cnt + 1)
             else:
                 game_start(nx, ny, (d + 2) % 4, cnt + 1)
-
+        elif arr[nx][ny] == 3:
+            if d == 1:
+                game_start(nx, ny, 2, cnt + 1)
+            elif d == 0:
+                game_start(nx, ny, 3, cnt + 1)
+            else:
+                game_start(nx, ny, (d + 2) % 4, cnt + 1)
+        elif arr[nx][ny] == 4:
+            if d == 1:
+                game_start(nx, ny, 0, cnt + 1)
+            elif d == 2:
+                game_start(nx, ny, 3, cnt + 1)
+            else:
+                game_start(nx, ny, (d + 2) % 4, cnt + 1)
+        elif arr[nx][ny] == 5:
+            game_start(nx, ny, (d + 2) % 4, cnt + 1)
+        else:
+            for i in range(2):
+                if wormhole[arr[nx][ny] - 6][i][0] == nx and wormhole[arr[nx][ny] - 6][i][1] == ny:
+                    continue
+                game_start(wormhole[arr[nx][ny] - 6][i][0], wormhole[arr[nx][ny] - 6][i][1], d, cnt + 1)
 
 t = int(input())
 for tc in range(1, t + 1):
@@ -38,21 +58,21 @@ for tc in range(1, t + 1):
     wormhole = [[] for _ in range(5)]
     for i in range(n):
         for j in range(n):
-            if arr[i][j] == 5:
-                wormhole[0].append([i, j])
             if arr[i][j] == 6:
-                wormhole[1].append([i, j])
+                wormhole[0].append([i, j])
             if arr[i][j] == 7:
-                wormhole[2].append([i, j])
+                wormhole[1].append([i, j])
             if arr[i][j] == 8:
-                wormhole[3].append([i, j])
+                wormhole[2].append([i, j])
             if arr[i][j] == 9:
-                wormhole[4].append([i, j])
+                wormhole[3].append([i, j])
             if arr[i][j] == 10:
-                wormhole[5].append([i, j])
+                wormhole[4].append([i, j])
 
     max_score = 0
     for i in range(n):
         for j in range(n):
             for d in range(4):
                 game_start(i, j, d, 0)
+
+    print(f"#{tc} {max_score}")

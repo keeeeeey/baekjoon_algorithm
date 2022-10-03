@@ -6,22 +6,30 @@ def find_set(x):
 def union(x, y):
     rep[find_set(y)] = find_set(x)
 
-v, e = map(int, input().split())
+V, E = map(int, input().split())
 edge = []
-for _ in range(e):
+for _ in range(E):
     u, v, w = map(int, input().split())
-    edge.append([u, v, w])
-edge.sort(key=lambda x: x[2])
-rep = [i for i in range(v + 1)]
+    edge.append([w, v, u])
+edge.sort()
+rep = [i for i in range(V + 1)]  # i의 대표는 i
 
-n = v + 1   # 실제 정점 수
-cnt = 0     # 선택한 edge의 수
-total = 0   # MST 가중치의 합
-for u, v, w in edge:
-    if find_set(u) != find_set(v):
+# MST의 간선 개수 = 정점수 - 1
+# N 은 정점 수
+N = V + 1
+# cnt 는 지금까지 선택한 edge 수
+cnt = 0
+# 가중치의 합
+total = 0
+
+# edge를 모두 확인 하면서 하나씩 선택하고,
+# 만약 사이클이 생기면 다음거 확인해서 사이클이 안생기는것만 골라서 추가
+for w, v, u in edge:
+    if find_set(v) != find_set(u):
         cnt += 1
         union(u, v)
         total += w
-        if cnt == n - 1:
+        if cnt == N - 1:  # MST 구성이 완료되었다.
             break
+
 print(total)
