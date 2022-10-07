@@ -16,10 +16,11 @@ def bfs(x, y):
                 flood_q.append((i, j))
 
     while q:
+        cnt += 1
         for _ in range(len(q)):
             x, y = q.popleft()
             if arr[x][y] == "*":
-                return False
+                continue
 
             for d in range(4):
                 nx = x + dx[d]
@@ -31,28 +32,31 @@ def bfs(x, y):
 
                         arr[nx][ny] = ","
                         q.append((nx, ny))
-        print(arr)
-        cnt += 1
+
         for _ in range(len(flood_q)):
             fx, fy = flood_q.popleft()
             for d in range(4):
                 nfx = fx + dx[d]
                 nfy = fy + dy[d]
                 if 0 <= nfx < r and 0 <= nfy < c:
-                    if arr[nfx][nfy] != "D" and arr[nfx][nfy] != "X":
+                    if arr[nfx][nfy] != "D" and arr[nfx][nfy] != "X" and arr[nfx][nfy] != "*":
                         arr[nfx][nfy] = "*"
                         flood_q.append((nfx, nfy))
-        print(arr)
 
     return False
 
 r, c = map(int, input().split())
 arr = [list(input()) for _ in range(r)]
 cnt = 0
+flag = False
 for i in range(r):
     for j in range(c):
         if arr[i][j] == "S":
+            flag = True
             if bfs(i, j):
                 print(cnt)
             else:
                 print("KAKTUS")
+            break
+    if flag:
+        break
